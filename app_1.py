@@ -11,7 +11,9 @@ df['CustomerID'] = df['CustomerID'].astype(int)
 img = Image.open("MicrosoftTeams-image.png")
 st.sidebar.image(img, width=300)
 st.sidebar.info("Customer lifetime value is a metric that indicates the total revenue a business can reasonably expect from a single customer account throughout the business relationship.")
-st.header("Predicting Customer Lifetime Value")
+c1, c2, c3 = st.columns((0.4,1,0.2))
+with c2:
+    st.header("Predicting Customer Lifetime Value")
 
 nav = st.sidebar.radio("Select Method of Calculation",('Direct Method','Whole Calculation'))
 
@@ -30,8 +32,8 @@ if nav == 'Direct Method':
 
     # st.info(func_1(customer))
     clv = func_1(customer)*2
-    cc = st.columns(2)
-    with cc[0]:
+    col1, col2, col3 = st.columns((0.5,1,0.5))
+    with col2:
         if clv < 1000:
             hc.info_card(title='Customer Lifetime Value Metric', content=clv, theme_override=theme_less)
         elif clv <5000:
@@ -72,18 +74,20 @@ elif nav == 'Whole Calculation':
     cv = apv*apfr
     acl = fun_acl(customer)
     cltv = cv*acl 
-    c1 = st.columns(2)
-    with c1[0]:
-        hc.info_card(title='Average Purchase Value', content=apv, theme_override=theme_less)
-    with c1[1]:
-        hc.info_card(title='Average Purchase Frequency Rate', content=apfr, theme_override=theme_less)
-    c2 = st.columns(2)
-    with c2[0]:
-        hc.info_card(title='Customer Value', content=cv, theme_override=theme_less)
-    with c2[1]:
+    
+    col1, col2, col3 = st.columns((0.5,1,0.5))
+    with col2:
         if cltv < 1000:
             hc.info_card(title='Customer Lifetime Value Metric', content=cltv, theme_override=theme_less)
         elif cltv < 5000:
             hc.info_card(title='Customer Lifetime Value Metric', content=cltv, theme_override=theme_middle)
         else:
             hc.info_card(title='Customer Lifetime Value Metric', content=cltv, theme_override=theme_high)
+
+    col1, col2, col3 = st.columns((1,1,1))
+    with col1:
+        hc.info_card(title='Average Purchase Value', content=apv, theme_override=theme_less)
+    with col2:
+        hc.info_card(title='Average Purchase Frequency Rate', content=apfr, theme_override=theme_less)
+    with col3:
+        hc.info_card(title='Customer Value', content=cv, theme_override=theme_less)
