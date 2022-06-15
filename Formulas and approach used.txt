@@ -1,0 +1,13 @@
+1st approach. 
+
+select the customer id--> function sholud get value for TotalPurchase.
+clv = TotalPurchase * total_no_0f_years_customer_purchased_from_shop
+
+------------------------------------------------------------------------
+2nd approach.
+
+select the customer id
+1st function --> get the average_purchase_value = (no. of purchases by the customer) / (total revenue of the company for his purchases)
+2nd function -->get the average_purchase_frequency_rate = (no. of purchases by the customer) / (total purchases by the customer)
+3rd function --> average customer lifespan = no of years / total purchaeses by customer.
+clv --> apv*apfr*acl
