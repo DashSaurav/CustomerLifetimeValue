@@ -1,0 +1,6 @@
+hydralit_components==1.0.9
+pandas==1.4.1
+Pillow==9.1.1
+requests==2.26.0
+streamlit==1.10.0
+streamlit_lottie==0.0.3
